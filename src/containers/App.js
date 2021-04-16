@@ -7,14 +7,6 @@ import ErrorBoundary from '../components/ErrorBoundry';
 import './App.css';
 
 function App() {
-    // constructor() {
-    //     super();
-        
-    //     this.state = {
-    //         robots: [],
-    //         searchFields: ''
-    //     }
-    // }
 
     const [robots, setRobots] = useState([]);
     const [searchFields, setSearchFields] = useState('');
@@ -29,16 +21,8 @@ function App() {
         .then(users => setRobots(users))
         .catch(err => console.log(err))
         .catch(err => console.log(err))
-    })
-    // const componentDidMount = () {
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //         .then(res => res.json())
-    //         .then(users => this.setState({robots: users}))
-    //         .catch(err => console.log(err))
-    //         .catch(err => console.log(err))
-    // }
+    }, [])
 
-        // const { robots, searchFields } = this.state;
         const filterRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchFields.toLowerCase());
         })
